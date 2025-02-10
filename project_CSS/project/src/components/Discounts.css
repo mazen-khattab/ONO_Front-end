@@ -1,0 +1,82 @@
+.discounts-section {
+  padding: 5rem 0;
+  background: #dc2626;
+}
+
+.discounts-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.discounts-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.discounts-title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.discounts-subtitle {
+  color: #fecaca;
+  font-size: 1.125rem;
+}
+
+.offers-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.offer-card {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.offer-icon {
+  margin-right: 1.5rem;
+}
+
+.offer-icon svg {
+  width: 3rem;
+  height: 3rem;
+  color: #dc2626;
+}
+
+.offer-content h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.offer-content p {
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+
+.offer-button {
+  background: #dc2626;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.offer-button:hover {
+  background: #b91c1c;
+}
+
+@media (min-width: 768px) {
+  .offers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
