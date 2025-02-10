@@ -148,16 +148,7 @@ const Products = () => {
                   className="product-image"
                   onClick={() => setSelectedProduct(product)}
                 />
-                <button
-                  onClick={() => toggleFavorite(product.id)}
-                  className="favorite-button"
-                >
-                  <Heart
-                    className={`favorite-icon ${
-                      favorites.includes(product.id) ? "active" : ""
-                    }`}
-                  />
-                </button>
+
               </div>
               <div className="product-info">
                 <h3 className="product-title">{product.name}</h3>
@@ -185,16 +176,6 @@ const Products = () => {
             <div className="modal-grid">
               <div className="modal-image">
                 <img src={selectedProduct.image} alt={selectedProduct.name} />
-                <button
-                  onClick={() => toggleFavorite(selectedProduct.id)}
-                  className="favorite-button"
-                >
-                  <Heart
-                    className={`favorite-icon ${
-                      favorites.includes(selectedProduct.id) ? "active" : ""
-                    }`}
-                  />
-                </button>
               </div>
               <div className="modal-details">
                 <h3 className="modal-title">{selectedProduct.name}</h3>

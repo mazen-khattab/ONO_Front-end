@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { ShoppingCart, Menu, Globe, Heart } from 'lucide-react';
 import './Navbar.css';
+import logo from '../images/Logo.jpg';
+
 
 const Navbar = () => {
   const [language, setLanguage] = useState('en');
   const [isActive, setIsActive] = useState(false);
   const languages = [
     { code: 'en', name: 'English' },
-    { code: 'es', name: 'Español' },
-    { code: 'fr', name: 'Français' },
     { code: 'ar', name: 'Arabic' },
   ];
 
@@ -30,7 +30,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-content">
-          <div className="logo">ONO</div>
+          <a href='/' className="logo"><img src={logo} alt="Logo" /></a>
           
           <div className="nav-links">
             <button onClick={() => scrollToSection('hero')}>Home</button>
@@ -59,11 +59,6 @@ const Navbar = () => {
             </div>
             
             <a href='login' className="btn btn-primary">Register</a>
-
-            <button className="icon-button">
-              <Heart className="h-6 w-6" />
-              <span className="badge">0</span>
-            </button>
 
             <button className="icon-button">
               <ShoppingCart className="h-6 w-6" />
