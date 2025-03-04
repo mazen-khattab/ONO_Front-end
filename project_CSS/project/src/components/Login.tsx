@@ -30,8 +30,8 @@ function LoginPage() {
               : "WH-container welcome-container"
           }
         >
-          <h1>Welcome Back</h1>
-          <p>To keep connected with us please login with your personal info</p>
+          <h1>Hello, Friend</h1>
+          <p>Enter your personal details and start journey with us</p>
           <button id="sign-in" onClick={handleSingIn}>
             SIGN IN
           </button>
@@ -44,8 +44,8 @@ function LoginPage() {
               : "WH-container hello-container hello-container-disappear"
           }
         >
-          <h1>Hello, Friend</h1>
-          <p>Enter your personal details and start journey with us</p>
+          <h1>Welcome Back</h1>
+          <p>To keep connected with us please login with your personal info</p>
           <button id="sign-up" onClick={handleSingUp}>
             SIGN UP
           </button>

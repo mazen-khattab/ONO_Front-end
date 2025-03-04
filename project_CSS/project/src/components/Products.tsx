@@ -1,5 +1,11 @@
 import React, { useState } from "react";
 import { X, Search, Heart } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Pagination, Navigation, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import "./Products.css";
 
 const products = [
@@ -38,6 +44,17 @@ const products = [
   },
   {
     id: 4,
+    name: "3D Crystal Maze",
+    price: 29.99,
+    image:
+      "https://images.unsplash.com/photo-1618842676088-c4d48a6a7c9d?auto=format&fit=crop&q=80",
+    description: "Challenge your spatial awareness",
+    longDescription:
+      "The 3D Crystal Maze is an advanced puzzle that tests and enhances your spatial reasoning abilities. With multiple layers of transparent pieces, you'll need to navigate through this intricate maze while considering depth and perspective. Perfect for both beginners and experienced puzzle enthusiasts.",
+    ageRange: "8-12",
+  },
+  {
+    id: 5,
     name: "Little Explorer's Puzzle Set",
     price: 24.99,
     image:
@@ -46,6 +63,17 @@ const products = [
     longDescription:
       "Designed specifically for young minds, the Little Explorer's Puzzle Set includes 6 wooden puzzles with large, easy-to-grip pieces. Each puzzle features bright colors and familiar shapes to help develop fine motor skills and cognitive abilities in toddlers.",
     ageRange: "3-6",
+  },
+  {
+    id: 6,
+    name: "Rainbow Cube Master",
+    price: 19.99,
+    image:
+      "https://images.unsplash.com/photo-1618842676088-c4d48a6a7c9d?auto=format&fit=crop&q=80",
+    description: "Classic puzzle with a colorful twist",
+    longDescription:
+      "The Rainbow Cube Master takes the classic cube puzzle to new heights with vibrant colors and smooth mechanics. Perfect for beginners learning algorithms or speed-cubing enthusiasts looking to improve their times. Includes a companion app with tutorial videos.",
+    ageRange: "6-10",
   },
   // ... other products
 ];
@@ -75,10 +103,8 @@ const Products = () => {
   };
 
   const filteredProducts = products.filter((product) => {
-    const matchesPrice =
-      product.price >= priceRange[0] && product.price <= priceRange[1];
-    const matchesAge =
-      selectedAgeRange === "all" || product.ageRange === selectedAgeRange;
+    const matchesPrice = product.price >= priceRange[0] && product.price <= priceRange[1];
+    const matchesAge = selectedAgeRange === "all" || product.ageRange === selectedAgeRange;
     const matchesSearch =
       searchQuery === "" ||
       product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -139,8 +165,34 @@ const Products = () => {
         </div>
 
         <div className="products-grid">
-          {filteredProducts.map((product) => (
-            <div key={product.id} className="product-card">
+        <Swiper
+        effect={'coverflow'}
+        centeredSlides={true}
+        slidesPerView={"auto"}
+        spaceBetween={50}
+        loop={true}
+        autoplay={{
+          delay: 3000,
+        }}
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 0,
+          depth: 200,
+          modifier: 1,
+          slideShadows: true,
+        }}
+        pagination={{ el: ".swiper-pagination", clickable: true }}
+        navigation={{
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+          clickable: true,
+        }}
+        modules={[ EffectCoverflow, Pagination, Navigation, Autoplay ]}
+        className="swiper-container"
+      >
+        {filteredProducts.map((product) => {
+          return (
+            <SwiperSlide key={product.id} className="product-card">
               <div className="product-image-container">
                 <img
                   src={product.image}
@@ -148,8 +200,8 @@ const Products = () => {
                   className="product-image"
                   onClick={() => setSelectedProduct(product)}
                 />
-
               </div>
+
               <div className="product-info">
                 <h3 className="product-title">{product.name}</h3>
                 <p className="product-description">{product.description}</p>
@@ -159,8 +211,22 @@ const Products = () => {
                   <button className="btn btn-primary">Add to Cart</button>
                 </div>
               </div>
-            </div>
-          ))}
+            </SwiperSlide>
+          );
+        })}
+
+        <div className="slider-controller">
+          <div className="swiper-button-prev slider-arrow">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+          </div>
+
+          <div className="swiper-button-next slider-arrow">
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </div>
+
+          <div className="swiper-pagination"></div>
+        </div>
+      </Swiper>
         </div>
       </div>
 
@@ -192,6 +258,8 @@ const Products = () => {
           </div>
         </div>
       )}
+
+      <button className="showAll">Show All Products</button>
     </section>
   );
 };

@@ -7,8 +7,8 @@ import About from "./components/About";
 import Discounts from "./components/Discounts";
 import Footer from "./components/Footer";
 import LoginPage from "./components/Login";
-import SocialIcons from "./components/SocialIcons";
 import Contact from "./components/Contact";
+import HomeCarousel from "./components/HomeCarousel";
 
 
 function App() {
@@ -27,7 +27,6 @@ function App() {
               <Contact />
               <Discounts />
               <Footer />
-              <SocialIcons />
             </div>
           }
         />
