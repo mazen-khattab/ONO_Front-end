@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "./Loign.css";
 
-function LoginPage() {
-  const [signIn, setSignIn] = useState(false);
-  const [singUp, setSignUp] = useState(false);
+function LoginPage(props) {
+  console.log(props.move)
+  const [signIn, setSignIn] = useState(props.move);
+  const [singUp, setSignUp] = useState(props.move);
+  console.log(singUp)
 
   const handleSingIn = () => {
     setSignIn(!signIn);
@@ -59,18 +61,18 @@ function LoginPage() {
           }
         >
           <h2>Create Account</h2>
-          <form id="signIn-form">
+          <form id="signUp-form">
             <div className="form-group">
               <label htmlFor="name">Name</label>
-              <input type="text" id="name" name="name" />
+              <input type="text" id="name" name="name" required/>
             </div>
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input type="text" id="email" name="email" />
+              <input type="text" id="email" name="email" required/>
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input type="password" id="password" name="password" />
+              <input type="password" id="password" name="password" required />
             </div>
             <button type="submit">SIGN UP</button>
           </form>
@@ -87,7 +89,7 @@ function LoginPage() {
           <form id="signIn-form">
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input type="text" id="email" name="email" required="" />
+              <input type="text" id="email" name="email" required />
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
@@ -95,7 +97,7 @@ function LoginPage() {
                 type="password"
                 id="password"
                 name="password"
-                required=""
+                required
               />
             </div>
             <button type="submit">SIGN IN</button>

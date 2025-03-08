@@ -1,72 +1,90 @@
-import React, { useState } from 'react';
-import { ShoppingCart, Menu, Globe, Heart } from 'lucide-react';
-import './Navbar.css';
-import logo from '../images/Logo.jpg';
-
+import React, { useState } from "react";
+import { ShoppingCart, Menu, Globe, Heart } from "lucide-react";
+import "./Navbar.css";
+import logo from "../images/Logo.jpg";
 
 const Navbar = () => {
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState("EN");
   const [isActive, setIsActive] = useState(false);
   const languages = [
-    { code: 'en', name: 'English' },
-    { code: 'ar', name: 'Arabic' },
+    { code: "EN", name: "English" },
+    { code: "AR", name: "Arabic" },
   ];
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
+        behavior: "smooth",
+        block: "start",
       });
     }
   };
 
   const dropdownLang = () => {
     setIsActive(!isActive);
-  }
+  };
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-content">
-          <a href='/' className="logo"><img src={logo} alt="Logo" /></a>
-          
+          <a href="/" className="logo">
+            <img src={logo} alt="Logo" />
+          </a>
+
           <div className="nav-links">
-            <button onClick={() => scrollToSection('hero')}>Home</button>
-            <button onClick={() => scrollToSection('products')}>Products</button>
-            <button onClick={() => scrollToSection('about')}>About</button>
-            <button onClick={() => scrollToSection('contact')}>Contact</button>
+            <button onClick={() => scrollToSection("hero")}>Home</button>
+            <button onClick={() => scrollToSection("products")}>
+              Products
+            </button>
+            <button onClick={() => scrollToSection("about")}>About</button>
+            <button onClick={() => scrollToSection("contact")}>Contact</button>
           </div>
 
           <div className="nav-actions">
-            <div className="language-selector" onClick={dropdownLang}>
-              <button className="language-button">
-                <Globe className="h-5 w-5" />
-                <span>{language}</span>
-              </button>
-              <div className={isActive? "language-dropdown" : "language-dropdown disappear"}>
-                {languages.map((lang) => (
-                  <button
-                    key={lang.code}
-                    onClick={() => setLanguage(lang.code)}
-                    className="language-option"
-                  >
-                    {lang.name}
-                  </button>
-                ))}
+            <div className="icons">
+              <div className="language-selector" onClick={dropdownLang}>
+                <button className="language-button">
+                  <Globe className="h-5 w-5" />
+                  <span>{language}</span>
+                </button>
+                <div
+                  className={
+                    isActive
+                      ? "language-dropdown"
+                      : "language-dropdown disappear"
+                  }
+                >
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => setLanguage(lang.code)}
+                      className="language-option"
+                    >
+                      {lang.name}
+                    </button>
+                  ))}
+                </div>
               </div>
+
+              <button className="icon-button">
+                <ShoppingCart className="h-6 w-6" />
+              </button>
+
+              <button className="icon-button menu-button">
+                <Menu className="h-6 w-6" />
+              </button>
             </div>
-            
-            <a href='login' className="btn btn-primary">Register</a>
 
-            <button className="icon-button">
-              <ShoppingCart className="h-6 w-6" />
-            </button>
-
-            <button className="icon-button menu-button">
-              <Menu className="h-6 w-6" />
-            </button>
+            <div className="registration">
+              <a href="register" className="btn btn-primary">
+                Register
+              </a>
+              <a href="login" className="btn login-btn">
+                LogIn
+              </a>
+            </div>
           </div>
         </div>
       </div>

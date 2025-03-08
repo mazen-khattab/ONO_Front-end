@@ -1,3 +1,7 @@
+:root {
+  --font-size: 15px
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -31,16 +35,12 @@ a {
   height: 4rem;
 }
 
-.logo {
-  width: 90px;
-}
-
 .logo img {
-  width: 100%;
+  width: 95px;
 }
 
 .nav-links {
-  display: none;
+  display: flex;
   height: 100%;
 }
 
@@ -54,7 +54,7 @@ a {
   width: 80px;
   position: relative;
   z-index: 1;
-  font-size: 14px;
+  font-size: var(--font-size);
   font-weight: 700;
 }
 
@@ -78,7 +78,15 @@ a {
   height: 100%;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 5px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  gap: 5px;
 }
 
 .language-selector {
@@ -170,12 +178,18 @@ a {
   font-size: 0.75rem;
 }
 
-@media (min-width: 768px) {
-  .nav-links {
-    display: flex;
-    gap: 20px;
-  }
+.login-btn {
+  margin-left: 10px;
+  background-color: #d9d9d9;
+  color: black;
+  transition: .5s;
+}
 
+.login-btn:hover {
+  background-color: #e8e6e6;
+}
+
+@media (min-width: 768px) {
   .menu-button {
     display: none;
   }

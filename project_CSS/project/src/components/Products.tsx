@@ -80,19 +80,6 @@ const products = [
 
 const Products = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [priceRange, setPriceRange] = useState([0, 50]);
-  const [selectedAgeRange, setSelectedAgeRange] = useState("all");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [favorites, setFavorites] = useState<number[]>([]);
-
-  const ageRanges = [
-    { value: "all", label: "All Ages" },
-    { value: "3-6", label: "3-6 years" },
-    { value: "6-10", label: "6-10 years" },
-    { value: "8-12", label: "8-12 years" },
-    { value: "12-16", label: "12-16 years" },
-    { value: "14+", label: "14+ years" },
-  ];
 
   const toggleFavorite = (productId: number) => {
     setFavorites((prev) =>
@@ -102,67 +89,10 @@ const Products = () => {
     );
   };
 
-  const filteredProducts = products.filter((product) => {
-    const matchesPrice = product.price >= priceRange[0] && product.price <= priceRange[1];
-    const matchesAge = selectedAgeRange === "all" || product.ageRange === selectedAgeRange;
-    const matchesSearch =
-      searchQuery === "" ||
-      product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      product.description.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesPrice && matchesAge && matchesSearch;
-  });
-
   return (
     <section id="products" className="products-section">
       <div className="products-container">
         <h2 className="section-title">Featured Products</h2>
-
-        <div className="search-container">
-          <div className="search-wrapper">
-            <input
-              type="text"
-              placeholder="Search products..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="search-input"
-            />
-            <Search className="search-icon" />
-          </div>
-        </div>
-
-        <div className="filters">
-          <div className="filter-grid">
-            <div className="filter-group">
-              <label>
-                Price Range: ${priceRange[0]} - ${priceRange[1]}
-              </label>
-              <input
-                type="range"
-                min="0"
-                max="50"
-                value={priceRange[1]}
-                onChange={(e) =>
-                  setPriceRange([priceRange[0], parseInt(e.target.value)])
-                }
-                className="range-input"
-              />
-            </div>
-            <div className="filter-group">
-              <label>Age Range</label>
-              <select
-                value={selectedAgeRange}
-                onChange={(e) => setSelectedAgeRange(e.target.value)}
-                className="select-input"
-              >
-                {ageRanges.map((range) => (
-                  <option key={range.value} value={range.value}>
-                    {range.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-        </div>
 
         <div className="products-grid">
         <Swiper
@@ -190,7 +120,7 @@ const Products = () => {
         modules={[ EffectCoverflow, Pagination, Navigation, Autoplay ]}
         className="swiper-container"
       >
-        {filteredProducts.map((product) => {
+        {products.map((product) => {
           return (
             <SwiperSlide key={product.id} className="product-card">
               <div className="product-image-container">
@@ -259,7 +189,7 @@ const Products = () => {
         </div>
       )}
 
-      <button className="showAll">Show All Products</button>
+      <a href="AllProducts" className="showAll">Show All Products</a>
     </section>
   );
 };

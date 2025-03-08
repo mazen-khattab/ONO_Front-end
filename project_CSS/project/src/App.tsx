@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 import LoginPage from "./components/Login";
 import Contact from "./components/Contact";
 import HomeCarousel from "./components/HomeCarousel";
-
+import AllProducts from "./components/ProductsPage"
 
 function App() {
   return (
@@ -30,8 +30,15 @@ function App() {
             </div>
           }
         />
+
         {/* Login Page Route */}
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage move={true} />} />
+
+        {/* Register Page Route */}
+        <Route path="/register" element={<LoginPage move={false} />} />
+
+        {/* All Products Page Route */}
+        <Route path="/AllProducts" element={<AllProducts />} />
       </Routes>
     </Router>
   );

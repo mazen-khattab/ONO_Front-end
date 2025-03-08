@@ -230,9 +230,14 @@
         height: 550px;
     }
 
-    #signIn-form {
+    #signUp-form {
         width: 150px;
     }
+
+    #signIn-form{
+        width: 150px;
+    }
+    
 
     .form h2 {
         font-size: 30px;
@@ -258,6 +263,10 @@
     }
 
     #signIn-form {
+        width: 120px;
+    }
+
+    #signUp-form {
         width: 120px;
     }
 
