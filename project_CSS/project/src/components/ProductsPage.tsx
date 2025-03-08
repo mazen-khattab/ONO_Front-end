@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ProductsPage.css";
+import Navbar from "./Navbar";
 
 const ITEMS_PER_PAGE = 12;
 
@@ -223,152 +224,140 @@ const ProductsPage = () => {
   };
 
   return (
-    <div className="products-page">
-      <div className="products-header">
-        <h1 className="products-title">Our Products</h1>
-        <p className="products-subtitle">
-          Discover our collection of mind-challenging puzzles
-        </p>
-      </div>
-
-      <div className="products-container">
-        <aside className="filters-section">
-          <div className="filter-group">
-            <h3 className="filter-title">Search</h3>
-            <div className="search-input">
-              <input
-                type="text"
-                placeholder="Search products..."
-                value={filters.searchQuery}
+    <div>
+      <div className="allProducts-page">
+        <div className="allProducts-header">
+        </div>
+      
+        <div className="allProducts-container">
+          <aside className="productFilters-section">
+            <div className="productFilter-group">
+              <h3 className="productFilter-title">Search</h3>
+              <div className="search-input">
+                <input
+                  type="text"
+                  placeholder="Search products..."
+                  value={filters.searchQuery}
+                  onChange={(e) =>
+                    setFilters((prev) => ({
+                      ...prev,
+                      searchQuery: e.target.value,
+                    }))
+                  }
+                  className="productForm-input"
+                />
+              </div>
+            </div>
+      
+            <div className="productFilter-group">
+              <h3 className="productFilter-title">Category</h3>
+              <select
+                value={filters.category}
                 onChange={(e) =>
-                  setFilters((prev) => ({
-                    ...prev,
-                    searchQuery: e.target.value,
-                  }))
+                  setFilters((prev) => ({ ...prev, category: e.target.value }))
                 }
-                className="form-input"
-              />
+                className="productForm-input"
+              >
+                {categories.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
             </div>
-          </div>
-
-          <div className="filter-group">
-            <h3 className="filter-title">Category</h3>
-            <select
-              value={filters.category}
-              onChange={(e) =>
-                setFilters((prev) => ({ ...prev, category: e.target.value }))
-              }
-              className="form-input"
-            >
-              {categories.map((category) => (
-                <option key={category} value={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="filter-group">
-            <h3 className="filter-title">Price Range</h3>
-            <div className="price-range">
-              <div className="range-slider">
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value={filters.priceRange.min}
-                  onChange={(e) =>
-                    handlePriceChange("min", Number(e.target.value))
-                  }
-                  className="slider"
-                />
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value={filters.priceRange.max}
-                  onChange={(e) =>
-                    handlePriceChange("max", Number(e.target.value))
-                  }
-                  className="slider"
-                />
-              </div>
-              <div className="price-display">
-                <span>${filters.priceRange.min}</span>
-                <span>${filters.priceRange.max}</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="filter-group">
-            <h3 className="filter-title">Age Range</h3>
-            <div className="checkbox-group">
-              {ageRanges.map((range) => (
-                <label key={range} className="checkbox-label">
+      
+            <div className="productFilter-group">
+              <h3 className="productFilter-title">Price Range</h3>
+              <div className="productPrice-range">
+                <div className="range-slider">
                   <input
-                    type="checkbox"
-                    checked={filters.ageRange.includes(range)}
-                    onChange={() => handleAgeRangeChange(range)}
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={filters.priceRange.max}
+                    onChange={(e) =>
+                      handlePriceChange("max", Number(e.target.value))
+                    }
+                    className="productSlider"
                   />
-                  {range}
-                </label>
-              ))}
-            </div>
-          </div>
-        </aside>
-
-        <main>
-          <div className="products-grid">
-            {paginatedProducts.map((product) => (
-              <div key={product.id} className="product-card">
-                <div className="product-image">
-                  <img src={product.image} alt={product.name} />
                 </div>
-                <div className="product-info">
-                  <div className="product-category">{product.category}</div>
-                  <h3 className="product-name">{product.name}</h3>
-                  <p className="product-description">{product.description}</p>
-                  <div className="product-footer">
-                    <div className="product-price">${product.price}</div>
-                    <button className="add-to-cart">Add to Cart</button>
+                <div className="productPrice-display">
+                  <span>${filters.priceRange.min}</span>
+                  <span>${filters.priceRange.max}</span>
+                </div>
+              </div>
+            </div>
+      
+            <div className="productFilter-group">
+              <h3 className="productFilter-title">Age Range</h3>
+              <div className="productCheckbox-group">
+                {ageRanges.map((range) => (
+                  <label key={range} className="productCheckbox-label">
+                    <input
+                      type="checkbox"
+                      checked={filters.ageRange.includes(range)}
+                      onChange={() => handleAgeRangeChange(range)}
+                    />
+                    {range}
+                  </label>
+                ))}
+              </div>
+            </div>
+          </aside>
+      
+          <main>
+            <div className="allproducts-grid">
+              {paginatedProducts.map((product) => (
+                <div key={product.id} className="allProduct-card">
+                  <div className="allProduct-image">
+                    <img src={product.image} alt={product.name} />
+                  </div>
+                  <div className="allProduct-info">
+                    <div className="allProduct-category">{product.category}</div>
+                    <h3 className="allProduct-name">{product.name}</h3>
+                    <p className="allProduct-description">{product.description}</p>
+                    <div className="allProduct-footer">
+                      <div className="allProduct-price">${product.price}</div>
+                      <button className="add-to-cart">Add to Cart</button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          {totalPages > 1 && (
-            <div className="pagination">
-              <button
-                className="page-btn"
-                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-                disabled={currentPage === 1}
-              >
-                Previous
-              </button>
-              {[...Array(totalPages)].map((_, i) => (
-                <button
-                  key={i + 1}
-                  className={`page-btn ${
-                    currentPage === i + 1 ? "active" : ""
-                  }`}
-                  onClick={() => setCurrentPage(i + 1)}
-                >
-                  {i + 1}
-                </button>
               ))}
-              <button
-                className="page-btn"
-                onClick={() =>
-                  setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-                }
-                disabled={currentPage === totalPages}
-              >
-                Next
-              </button>
             </div>
-          )}
-        </main>
+      
+            {totalPages > 1 && (
+              <div className="pagination">
+                <button
+                  className="page-btn"
+                  onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                  disabled={currentPage === 1}
+                >
+                  Previous
+                </button>
+                {[...Array(totalPages)].map((_, i) => (
+                  <button
+                    key={i + 1}
+                    className={`page-btn ${
+                      currentPage === i + 1 ? "active" : ""
+                    }`}
+                    onClick={() => setCurrentPage(i + 1)}
+                  >
+                    {i + 1}
+                  </button>
+                ))}
+                <button
+                  className="page-btn"
+                  onClick={() =>
+                    setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                  }
+                  disabled={currentPage === totalPages}
+                >
+                  Next
+                </button>
+              </div>
+            )}
+          </main>
+        </div>
       </div>
     </div>
   );
