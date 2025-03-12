@@ -1,6 +1,6 @@
 import React from "react";
 import "./Hero.css";
-import HomeCarousel from "./HomeCarousel.tsx";
+import HomeCarousel from "../HomeCarousel/HomeCarousel.tsx";
 
 const Hero = () => {
   return (

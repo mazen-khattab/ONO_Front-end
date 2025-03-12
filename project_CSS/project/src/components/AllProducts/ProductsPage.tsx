@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ProductsPage.css";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar";
 
 const ITEMS_PER_PAGE = 12;
 
@@ -225,10 +225,11 @@ const ProductsPage = () => {
 
   return (
     <div>
+      <Navbar />
+
       <div className="allProducts-page">
         <div className="allProducts-header">
         </div>
-      
         <div className="allProducts-container">
           <aside className="productFilters-section">
             <div className="productFilter-group">

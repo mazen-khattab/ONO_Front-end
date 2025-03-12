@@ -3,9 +3,10 @@ import { ShoppingCart, Menu, Globe, Heart } from "lucide-react";
 import "./Navbar.css";
 import logo from "../images/Logo.jpg";
 
-const Navbar = () => {
-  const [language, setLanguage] = useState("EN");
+const Navbar = (props) => {
   const [isActive, setIsActive] = useState(false);
+  const [language, setLanguage] = useState("EN");
+  const [isHome] = useState(props.isHome);
   const languages = [
     { code: "EN", name: "English" },
     { code: "AR", name: "Arabic" },
@@ -33,11 +34,9 @@ const Navbar = () => {
             <img src={logo} alt="Logo" />
           </a>
 
-          <div className="nav-links">
+          <div className={isHome ? "nav-links" : "nav-links disappear"}>
             <button onClick={() => scrollToSection("hero")}>Home</button>
-            <button onClick={() => scrollToSection("products")}>
-              Products
-            </button>
+            <button onClick={() => scrollToSection("products")}>Products</button>
             <button onClick={() => scrollToSection("about")}>About</button>
             <button onClick={() => scrollToSection("contact")}>Contact</button>
           </div>

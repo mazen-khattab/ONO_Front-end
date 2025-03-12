@@ -1,15 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Products from "./components/Products";
-import About from "./components/About";
-import Discounts from "./components/Discounts";
-import Footer from "./components/Footer";
-import LoginPage from "./components/Login";
-import Contact from "./components/Contact";
-import HomeCarousel from "./components/HomeCarousel";
-import AllProducts from "./components/ProductsPage"
+import Hero from "./components/Hero/Hero";
+import Products from "./components/Product/Products";
+import About from "./components/About/About";
+import Discounts from "./components/Discounts/Discounts";
+import Footer from "./components/Footer/Footer";
+import LoginPage from "./components/Login/Login";
+import Contact from "./components/ContactUs/Contact";
+import HomeCarousel from "./components/HomeCarousel/HomeCarousel";
+import AllProducts from "./components/AllProducts/ProductsPage"
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           path="/"
           element={
             <div className="min-h-screen">
-              <Navbar />
+              <Navbar isHome={true}/>
               <Hero />
               <Products />
               <About />

@@ -36,16 +36,19 @@ const About = () => {
             <h4 className="feature-title">Cognitive Development</h4>
             <p className="feature-description">Enhances problem-solving skills and logical thinking</p>
           </div>
+
           <div className="feature-card">
             <Heart className="feature-icon" />
             <h4 className="feature-title">Emotional Growth</h4>
             <p className="feature-description">Builds confidence and patience through achievement</p>
           </div>
+
           <div className="feature-card">
             <Users className="feature-icon" />
             <h4 className="feature-title">Social Skills</h4>
             <p className="feature-description">Encourages collaboration and sharing experiences</p>
           </div>
+          
           <div className="feature-card">
             <Sparkles className="feature-icon" />
             <h4 className="feature-title">Creativity</h4>
