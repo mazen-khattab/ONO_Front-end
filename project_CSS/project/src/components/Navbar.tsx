@@ -35,10 +35,11 @@ const Navbar = (props) => {
           </a>
 
           <div className={isHome ? "nav-links" : "nav-links disappear"}>
-            <button onClick={() => scrollToSection("hero")}>Home</button>
-            <button onClick={() => scrollToSection("products")}>Products</button>
-            <button onClick={() => scrollToSection("about")}>About</button>
-            <button onClick={() => scrollToSection("contact")}>Contact</button>
+            <button className="link" onClick={() => scrollToSection("hero")}>Home</button>
+            <button className="link" onClick={() => scrollToSection("products")}>Products</button>
+            <button className="link" onClick={() => scrollToSection("about")}>About</button>
+            <a className="link" href="./WhyUs" >Why Us</a>
+            <button className="link" onClick={() => scrollToSection("contact")}>Contact</button>
           </div>
 
           <div className="nav-actions">

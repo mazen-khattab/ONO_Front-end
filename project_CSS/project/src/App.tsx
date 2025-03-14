@@ -10,6 +10,7 @@ import LoginPage from "./components/Login/Login";
 import Contact from "./components/ContactUs/Contact";
 import HomeCarousel from "./components/HomeCarousel/HomeCarousel";
 import AllProducts from "./components/AllProducts/ProductsPage"
+import WhyUs from "./components/WhyUs/WhyUs"
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
 
         {/* All Products Page Route */}
         <Route path="/AllProducts" element={<AllProducts />} />
+
+        {/* Why us page */}
+        <Route path="/WhyUs" element={<WhyUs></WhyUs>}/>
       </Routes>
     </Router>
   );

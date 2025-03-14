@@ -55,25 +55,6 @@ const About = () => {
             <p className="feature-description">Stimulates imagination and innovative thinking</p>
           </div>
         </div>
-
-        <div className="why-puzzles">
-          <h3>Why Puzzles Matter</h3>
-          <p>
-            Research has shown that children who regularly engage with puzzles and problem-solving toys 
-            demonstrate improved spatial awareness, better memory retention, and enhanced critical thinking 
-            abilities. These skills are crucial for success in mathematics, science, and other academic areas.
-          </p>
-          <p>
-            Beyond academic benefits, our puzzles help children develop essential life skills such as 
-            perseverance, attention to detail, and the ability to break complex problems into manageable 
-            steps. These are valuable traits that will serve them well throughout their lives.
-          </p>
-          <p>
-            At ONO, we carefully select each puzzle to ensure it provides the right balance of challenge 
-            and achievement, making learning both fun and rewarding. We believe that every solved puzzle 
-            is a step toward building a brighter, more capable future for your child.
-          </p>
-        </div>
       </div>
     </section>
   );
