@@ -21,10 +21,9 @@ function App() {
           path="/"
           element={
             <div className="min-h-screen">
-              <Navbar isHome={true}/>
+              <Navbar/>
               <Hero />
               <Products />
-              <About />
               <Contact />
               <Discounts />
               <Footer />
@@ -41,8 +40,11 @@ function App() {
         {/* All Products Page Route */}
         <Route path="/AllProducts" element={<AllProducts />} />
 
-        {/* Why us page */}
+        {/* Why us page Route */}
         <Route path="/WhyUs" element={<WhyUs></WhyUs>}/>
+
+        {/* About Page Route */}
+        <Route path="/About" element={<About></About>}/>
       </Routes>
     </Router>
   );

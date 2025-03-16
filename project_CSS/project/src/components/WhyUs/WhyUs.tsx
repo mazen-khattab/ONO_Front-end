@@ -20,6 +20,7 @@ import {
   MessageCircle 
 } from "lucide-react";
 import "./WhyUs.css";
+import Footer from "../Footer/Footer";
 
 function Why() {
   return (
@@ -146,46 +147,9 @@ function Why() {
             </div>
           </div>
         </section>
-
-        {/* Section 4: Start the Fun & Learning Journey Today! */}
-        <section className="why-section alternate cta-section">
-          <div className="section-content">
-            <h2 className="section-title">
-              Start the Fun & Learning Journey Today!
-            </h2>
-            <p className="section-subtitle">
-              Join thousands of happy customers who chose our puzzles
-            </p>
-
-            <div className="cards-grid">
-              <div className="feature-card">
-                <Rocket className="card-icon" />
-                <h3>Get Started</h3>
-                <p>Browse our collection and find the perfect puzzle</p>
-              </div>
-              <div className="feature-card">
-                <Star className="card-icon" />
-                <h3>Special Offers</h3>
-                <p>Exclusive deals for new customers</p>
-              </div>
-              <div className="feature-card">
-                <Award className="card-icon" />
-                <h3>Rewards Program</h3>
-                <p>Earn points with every purchase</p>
-              </div>
-              <div className="feature-card">
-                <Gift className="card-icon" />
-                <h3>Gift Options</h3>
-                <p>Perfect presents for young minds</p>
-              </div>
-            </div>
-
-            <div className="cta-container">
-              <button className="cta-button">Shop Now</button>
-            </div>
-          </div>
-        </section>
       </div>
+
+      <Footer></Footer>
     </div>
   );
 }

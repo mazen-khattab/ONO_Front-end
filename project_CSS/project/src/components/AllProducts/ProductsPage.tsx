@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./ProductsPage.css";
 import Navbar from "../Navbar";
+import Footer from "../Footer/Footer";
 
 const ITEMS_PER_PAGE = 12;
 
@@ -360,6 +361,8 @@ const ProductsPage = () => {
           </main>
         </div>
       </div>
+
+      <Footer></Footer>
     </div>
   );
 };

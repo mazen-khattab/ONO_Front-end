@@ -3,24 +3,13 @@ import { ShoppingCart, Menu, Globe, Heart } from "lucide-react";
 import "./Navbar.css";
 import logo from "../images/Logo.jpg";
 
-const Navbar = (props) => {
+const Navbar = () => {
   const [isActive, setIsActive] = useState(false);
   const [language, setLanguage] = useState("EN");
-  const [isHome] = useState(props.isHome);
   const languages = [
     { code: "EN", name: "English" },
     { code: "AR", name: "Arabic" },
   ];
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
 
   const dropdownLang = () => {
     setIsActive(!isActive);
@@ -34,12 +23,12 @@ const Navbar = (props) => {
             <img src={logo} alt="Logo" />
           </a>
 
-          <div className={isHome ? "nav-links" : "nav-links disappear"}>
-            <button className="link" onClick={() => scrollToSection("hero")}>Home</button>
-            <button className="link" onClick={() => scrollToSection("products")}>Products</button>
-            <button className="link" onClick={() => scrollToSection("about")}>About</button>
-            <a className="link" href="./WhyUs" >Why Us</a>
-            <button className="link" onClick={() => scrollToSection("contact")}>Contact</button>
+          <div className="nav-links">
+            <a href="/" className="link">Home</a>
+            <a href="AllProducts" className="link" >Products</a>
+            <a href="about" className="link" >About</a>
+            <a href="./WhyUs" className="link">Why Us</a>
+            <a href="contact" className="link" >Contact</a>
           </div>
 
           <div className="nav-actions">

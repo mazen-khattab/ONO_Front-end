@@ -19,7 +19,7 @@ const Footer = () => {
           
           <div className="footer-section">
             <h4>Contact Info</h4>
-            <ul className="contact-info">
+            <ul className="footer-contact-info">
               <li>
                 <Mail />
                 info@onopuzzles.com

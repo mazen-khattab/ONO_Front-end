@@ -18,11 +18,6 @@ const Contact = () => {
 
   return (
     <section id="contact" className="contact">
-      <div className="contact-header">
-        <h2 className="contact-title">Contact Us</h2>
-        <p className="contact-subtitle">We'd love to hear from you</p>
-      </div>
-
       <div className="contact-content">
         <div className="contact-info">
           <h3>Get in Touch</h3>
@@ -50,6 +45,10 @@ const Contact = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="contact-form">
+        <div className="contact-header">
+        <h2 className="contact-title">Contact Us</h2>
+        <p className="contact-subtitle">We'd love to hear from you</p>
+      </div>
           <div className="form-group">
             <label htmlFor="name" className="form-label">Name</label>
             <input
