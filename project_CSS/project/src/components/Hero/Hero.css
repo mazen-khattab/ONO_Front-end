@@ -34,7 +34,7 @@
 }
 
 .hero-title {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: bold;
   color: white;
   margin-bottom: 0.5rem;
@@ -45,9 +45,10 @@
 }
 
 .hero-description {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: #e5e7eb;
   margin-bottom: 2rem;
+  width: fit-content;
 }
 
 .shop-now {
@@ -87,12 +88,13 @@
 
 }
 
-@media (min-width: 768px) {
+@media (max-width: 1160px) {
   .hero-title {
-    font-size: 3.5rem;
+      font-size: 3rem;
   }
 
   .hero-description {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    width: 400px;
   }
 }

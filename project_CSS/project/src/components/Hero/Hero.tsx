@@ -28,9 +28,9 @@ const Hero = () => {
         </a>
       </div>
       <div className="home-carousel-container">
-        <HomeCarousel right={40} />
-        <HomeCarousel direction="reverse" right={220} />
-        <HomeCarousel right={400} />
+        <HomeCarousel classname="carousel-container1" />
+        <HomeCarousel direction="reverse" classname="carousel-container2" />
+        <HomeCarousel classname="carousel-container3" />
       </div>
     </div>
   );

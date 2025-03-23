@@ -106,10 +106,9 @@ const HomeCarousel: React.FC = (props) => {
 
   return (
     <div 
-      className="carousel-container"
+      className={`${props.classname} carousel-container`}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      style={{'right': props.right}}
     >
       <div className={`carousel-track ${isPaused ? 'paused' : ''}`} style={{'animation-direction': props.direction}}>
         {[...items, ...items].map((item, index) => (
