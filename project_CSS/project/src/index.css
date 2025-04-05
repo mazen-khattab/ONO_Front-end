@@ -1,12 +1,21 @@
 /* Reset and base styles */
 @import url('https://fonts.googleapis.com/css2?family=Liter&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+:root {
+  --main-color: #ec1c25;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', serif;
 }
+
+a {
+  text-decoration: none;
+}
+
 
 body {
   line-height: 1.6;
@@ -58,9 +67,6 @@ body {
   }
 }
 
-/* Section spacing */
 .section {
   padding: 5rem 0;
 }
-
-/* Card styles */

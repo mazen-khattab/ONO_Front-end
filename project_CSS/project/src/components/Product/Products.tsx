@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { X, Search, Heart } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination, Navigation, Autoplay } from "swiper/modules";
+import {
+  EffectCoverflow,
+  Pagination,
+  Navigation,
+  Autoplay,
+} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
@@ -75,6 +80,39 @@ const products = [
       "The Rainbow Cube Master takes the classic cube puzzle to new heights with vibrant colors and smooth mechanics. Perfect for beginners learning algorithms or speed-cubing enthusiasts looking to improve their times. Includes a companion app with tutorial videos.",
     ageRange: "6-10",
   },
+  {
+    id: 7,
+    name: "Rainbow Cube Master",
+    price: 19.99,
+    image:
+      "https://images.unsplash.com/photo-1618842676088-c4d48a6a7c9d?auto=format&fit=crop&q=80",
+    description: "Classic puzzle with a colorful twist",
+    longDescription:
+      "The Rainbow Cube Master takes the classic cube puzzle to new heights with vibrant colors and smooth mechanics. Perfect for beginners learning algorithms or speed-cubing enthusiasts looking to improve their times. Includes a companion app with tutorial videos.",
+    ageRange: "6-10",
+  },
+  {
+    id: 8,
+    name: "Rainbow Cube Master",
+    price: 19.99,
+    image:
+      "https://images.unsplash.com/photo-1618842676088-c4d48a6a7c9d?auto=format&fit=crop&q=80",
+    description: "Classic puzzle with a colorful twist",
+    longDescription:
+      "The Rainbow Cube Master takes the classic cube puzzle to new heights with vibrant colors and smooth mechanics. Perfect for beginners learning algorithms or speed-cubing enthusiasts looking to improve their times. Includes a companion app with tutorial videos.",
+    ageRange: "6-10",
+  },
+  {
+    id: 9,
+    name: "Rainbow Cube Master",
+    price: 19.99,
+    image:
+      "https://images.unsplash.com/photo-1618842676088-c4d48a6a7c9d?auto=format&fit=crop&q=80",
+    description: "Classic puzzle with a colorful twist",
+    longDescription:
+      "The Rainbow Cube Master takes the classic cube puzzle to new heights with vibrant colors and smooth mechanics. Perfect for beginners learning algorithms or speed-cubing enthusiasts looking to improve their times. Includes a companion app with tutorial videos.",
+    ageRange: "6-10",
+  },
   // ... other products
 ];
 
@@ -95,68 +133,68 @@ const Products = () => {
         <h2 className="section-title">Featured Products</h2>
 
         <div className="products-grid">
-        <Swiper
-        effect={'coverflow'}
-        centeredSlides={true}
-        slidesPerView={"auto"}
-        spaceBetween={50}
-        loop={true}
-        autoplay={{
-          delay: 3000,
-        }}
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 0,
-          depth: 200,
-          modifier: 1,
-          slideShadows: true,
-        }}
-        pagination={{ el: ".swiper-pagination", clickable: true }}
-        navigation={{
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-          clickable: true,
-        }}
-        modules={[ EffectCoverflow, Pagination, Navigation, Autoplay ]}
-        className="swiper-container"
-      >
-        {products.map((product) => {
-          return (
-            <SwiperSlide key={product.id} className="product-card">
-              <div className="product-image-container">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="product-image"
-                  onClick={() => setSelectedProduct(product)}
-                />
+          <Swiper
+            effect={"coverflow"}
+            centeredSlides={true}
+            slidesPerView={"auto"}
+            spaceBetween={35}
+            loop={true}
+            // autoplay={{
+            //   delay: 3000,
+            // }}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 200,
+              modifier: 1,
+              slideShadows: true,
+            }}
+            pagination={{ el: ".swiper-pagination", clickable: true }}
+            navigation={{
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+              clickable: true,
+            }}
+            modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+            className="swiper-container"
+          >
+            {products.map((product) => {
+              return (
+                <SwiperSlide key={product.id} className="product-card">
+                  <div className="product-image-container">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="product-image"
+                      onClick={() => setSelectedProduct(product)}
+                    />
+                  </div>
+
+                  <div className="product-info">
+                    <h3 className="product-title">{product.name}</h3>
+                    <p className="product-description">{product.description}</p>
+                    <p className="product-age">Age: {product.ageRange}</p>
+                    <div className="product-footer">
+                      <span className="product-price">${product.price}</span>
+                      <button className="cart-btn">Add to Cart</button>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+
+            <div className="slider-controller">
+              <div className="swiper-button-prev slider-arrow">
+                <ion-icon name="arrow-back-outline"></ion-icon>
               </div>
 
-              <div className="product-info">
-                <h3 className="product-title">{product.name}</h3>
-                <p className="product-description">{product.description}</p>
-                <p className="product-age">Age: {product.ageRange}</p>
-                <div className="product-footer">
-                  <span className="product-price">${product.price}</span>
-                  <button className="btn btn-primary">Add to Cart</button>
-                </div>
+              <div className="swiper-button-next slider-arrow">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
               </div>
-            </SwiperSlide>
-          );
-        })}
 
-        <div className="slider-controller">
-          <div className="swiper-button-prev slider-arrow">
-            <ion-icon name="arrow-back-outline"></ion-icon>
-          </div>
-
-          <div className="swiper-button-next slider-arrow">
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-          </div>
-
-          <div className="swiper-pagination"></div>
-        </div>
-      </Swiper>
+              <div className="swiper-pagination"></div>
+            </div>
+          </Swiper>
         </div>
       </div>
 
@@ -189,7 +227,9 @@ const Products = () => {
         </div>
       )}
 
-      <a href="AllProducts" className="showAll">Show All Products</a>
+      <a href="AllProducts" className="showAll">
+        Show All Products
+      </a>
     </section>
   );
 };

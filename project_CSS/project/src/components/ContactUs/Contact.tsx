@@ -11,8 +11,6 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
     setFormData({ name: '', email: '', message: '' });
   };
 
@@ -83,7 +81,7 @@ const Contact = () => {
           </div>
           <button type="submit" className="submit-btn">
             <span>Send Message</span>
-            <Send className="icon" />
+            <i className="fa-solid fa-paper-plane"></i>
           </button>
         </form>
       </div>

@@ -10,50 +10,63 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(270deg, #000000f0, #0000008f);
+  background: linear-gradient(271deg, #000000, #0000008f);
 }
 
 .home-carousel-container {
-  width: 600px;
+  max-width: 600px;
   height: 100vh;
   position: absolute;
   top: 0;
   right: 0;
 }
 
-.hero-content {
+.card {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-  margin-left: 48px;
+  --bg-color: #212121;
+  padding: 0 48px;
 }
 
-.hero-text {
-  padding: 16px;
-  width: 600px;
+.loader {
+  font-size: 35px;
+  font-weight: 600;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 10px;
 }
 
-.hero-title {
-  font-size: 3.5rem;
-  font-weight: bold;
+.loader p {
   color: white;
-  margin-bottom: 0.5rem;
 }
 
-.hero-title span {
-  color: #ec1c25;
+.words {
+  overflow: hidden;
+  position: relative;
+}
+
+.word {
+  font-weight: 900;
+  display: block;
+  height: 100%;
+  padding-left: 6px;
+  color: var(--main-color);
 }
 
 .hero-description {
-  font-size: 1.5rem;
-  color: #e5e7eb;
-  margin-bottom: 2rem;
-  width: fit-content;
+  color: #bdbdbd;
+  font-size: 20px;
+  width: 350px;
+  margin-bottom: 40px;
 }
 
 .shop-now {
   position: absolute;
-  margin-left: 16px;
   width: 120px;
   padding: 16px;
   text-align: center;
@@ -88,13 +101,119 @@
 
 }
 
-@media (max-width: 1160px) {
-  .hero-title {
-      font-size: 3rem;
+@media (max-width: 768px) {
+  .shop-now {
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .loader {
+    justify-content: center;
   }
 
   .hero-description {
-    font-size: 1.25rem;
-    width: 400px;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .word {
+    animation: spin_4991 4s infinite;
+  }
+
+  @keyframes spin_4991 {
+    10% {
+      -webkit-transform: translateY(-102%);
+      transform: translateY(-102%);
+    }
+
+    25% {
+      -webkit-transform: translateY(-100%);
+      transform: translateY(-100%);
+    }
+
+    35% {
+      -webkit-transform: translateY(-202%);
+      transform: translateY(-202%);
+    }
+
+    50% {
+      -webkit-transform: translateY(-200%);
+      transform: translateY(-200%);
+    }
+
+    60% {
+      -webkit-transform: translateY(-302%);
+      transform: translateY(-302%);
+    }
+
+    75% {
+      -webkit-transform: translateY(-300%);
+      transform: translateY(-300%);
+    }
+
+    85% {
+      -webkit-transform: translateY(-402%);
+      transform: translateY(-402%);
+    }
+
+    100% {
+      -webkit-transform: translateY(-400%);
+      transform: translateY(-400%);
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .card {
+    padding: 0 7px;
+  }
+
+  .loader {
+    font-size: 30px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 550px) {
+  .loader {
+    font-size: 25px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 450px) {
+  .loader {
+    font-size: 24px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+    width: 250px;
+    margin: 0 auto 40px;
+  }
+}
+
+@media (max-width: 420px) {
+  .loader {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 400px) {
+  .loader {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 380px) {
+  .loader {
+    font-size: 21px;
   }
 }

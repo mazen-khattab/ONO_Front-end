@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import { ShoppingCart, Menu, Globe, Heart } from "lucide-react";
+import { useState } from "react";
+import { ShoppingCart, Menu, Globe } from "lucide-react";
 import "./Navbar.css";
 import logo from "../images/Logo.jpg";
 
 const Navbar = () => {
   const [isActive, setIsActive] = useState(false);
   const [language, setLanguage] = useState("EN");
+  const [menuActive, setMenuActive] = useState(false);
+  console.log(menuActive)
   const languages = [
     { code: "EN", name: "English" },
     { code: "AR", name: "Arabic" },
@@ -13,6 +15,11 @@ const Navbar = () => {
 
   const dropdownLang = () => {
     setIsActive(!isActive);
+  };
+
+  const CloseMenu = () => {
+    setMenuActive(!menuActive);
+    console.log(menuActive)
   };
 
   return (
@@ -24,11 +31,46 @@ const Navbar = () => {
           </a>
 
           <div className="nav-links">
-            <a href="/" className="link">Home</a>
-            <a href="AllProducts" className="link" >Products</a>
-            <a href="about" className="link" >About</a>
-            <a href="./WhyUs" className="link">Why Us</a>
-            <a href="contact" className="link" >Contact</a>
+            <a href="/" className="link">
+              Home
+            </a>
+            <a href="AllProducts" className="link">
+              Products
+            </a>
+            <a href="about" className="link">
+              About
+            </a>
+            <a href="./WhyUs" className="link">
+              Why Us
+            </a>
+            <a href="contact" className="link">
+              Contact
+            </a>
+          </div>
+
+          <div className={menuActive ? "nav-links-menu" : "nav-links-menu disappear"}>
+            <i className="fa-solid fa-xmark close" onClick={CloseMenu}></i>
+            <div className="nav-links-menu-container">
+              <div className="user">
+                <i className="fa-solid fa-circle-user"></i>
+                <p>User_name</p>
+              </div>
+              <a href="/" className="link">
+                Home
+              </a>
+              <a href="AllProducts" className="link">
+                Products
+              </a>
+              <a href="about" className="link">
+                About
+              </a>
+              <a href="./WhyUs" className="link">
+                Why Us
+              </a>
+              <a href="contact" className="link">
+                Contact
+              </a>
+            </div>
           </div>
 
           <div className="nav-actions">
@@ -57,23 +99,19 @@ const Navbar = () => {
                 </div>
               </div>
 
-              <button className="icon-button">
-                <ShoppingCart className="h-6 w-6" />
-              </button>
-
-              <button className="icon-button menu-button">
-                <Menu className="h-6 w-6" />
-              </button>
+              <i className="fa-solid fa-cart-shopping icon cart"></i>
             </div>
 
             <div className="registration">
-              <a href="register" className="btn btn-primary">
+              <a href="register" className="register-btn">
                 Register
               </a>
-              <a href="login" className="btn login-btn">
+              <a href="login" className="login-btn">
                 LogIn
               </a>
             </div>
+
+            <i className="fa-solid fa-bars icon menu" onClick={CloseMenu}></i>
           </div>
         </div>
       </div>
