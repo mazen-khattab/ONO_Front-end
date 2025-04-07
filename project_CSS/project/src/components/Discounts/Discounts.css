@@ -6,7 +6,6 @@
 .discounts-container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1rem;
 }
 
 .discounts-header {
@@ -74,6 +73,59 @@
 .offer-button:hover {
   background: #b91c1c;
 }
+
+@media (max-width: 1024px) {
+  .discounts-section {
+    padding: 60px 32px 
+  }
+
+  .offer-card {
+    padding: 1.25rem;
+  }
+
+  .offer-content h3 {
+    font-size: 22px;
+  }
+
+  .offer-content p {
+    font-size: 15px
+  }
+}
+
+@media (max-width: 850px) {
+  .offer-card {
+    padding: 1rem;
+  }
+
+  .offer-content h3 {
+    font-size: 21px;
+  }
+
+  .offer-content p {
+    font-size: 14px
+  }
+} 
+
+@media (max-width: 768px) {
+  .discounts-section {
+    padding: 60px 16px 
+  }
+
+}
+
+@media (max-width: 450px) {
+  .offer-card {
+    padding: 1rem;
+  }
+
+  .offer-content h3 {
+    font-size: 21px;
+  }
+
+  .offer-content p {
+    font-size: 14px
+  }
+} 
 
 @media (min-width: 768px) {
   .offers-grid {

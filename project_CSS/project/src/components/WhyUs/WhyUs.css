@@ -4,22 +4,27 @@
 }
 
 .why-section {
-    padding: 5rem 0;
+    padding: 3rem 0;
     background-color: white;
 }
 
 .why-section.alternate {
-    background-color: #f3f3f3
+    background-color: #f3f3f3;
+    border-radius: 10px ;
 }
 
 .section-content {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 3rem;
+    padding: 0 30px;
+}
+
+.main-content {
+    padding: 0;
 }
 
 .section-title {
-    font-size: 50px;
+    font-size: 48px;
     font-weight: bold;
     text-align: center;
     margin-bottom: 1rem;
@@ -119,20 +124,107 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
     .section-title {
-        font-size: 2rem;
+        font-size: 44px
     }
 
     .section-subtitle {
-        font-size: 1.1rem;
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .why-us-page {
+        padding: 60px 32px;
+    }
+
+    .section-title {
+        font-size: 42px
+    }
+
+    .section-subtitle {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 900px) {
+    .section-title {
+        font-size: 40px
+    }
+
+    .section-subtitle {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 900px) {
+    .section-title {
+        font-size: 38px
+    }
+
+    .section-subtitle {
+        font-size: 16px;
+    }
+} 
+
+@media (max-width: 768px) {
+    .why-us-page{
+        padding: 40px 16px;
+    }
+
+    .section-title {
+        font-size: 32px
+    }
+
+    .section-subtitle {
+        font-size: 15px;
     }
 
     .cards-grid {
         grid-template-columns: 1fr;
     }
+}
 
-    .feature-card {
-        padding: 1.5rem;
+@media (max-width: 630px) {
+    .main-content {
+        text-align: center;
+        width: 420px;
+        font-size: 30px;
+        margin: 0 auto 20px; 
+    }
+
+    .section-subtitle {
+        font-size: 15px;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .section-content{
+        padding: 0 16px;
+    }
+
+    .why-section {
+        padding: 2rem 0;
+    }
+
+    .main-content {
+        width: 330px;
+    }
+
+    .section-subtitle {
+        font-size: 15px;
+    }
+    
+}
+
+@media (max-width: 420px) {
+    .section-title {
+        font-size: 27px
+    }
+
+    .section-subtitle {
+        font-size: 14px;
     }
 }

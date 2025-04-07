@@ -20,21 +20,21 @@ const Contact = () => {
         <div className="contact-info">
           <h3>Get in Touch</h3>
           <div className="info-item">
-            <Mail className="info-icon" />
+            <i className="fa-solid fa-envelope info-icon"></i>
             <div className="info-text">
               <h4>Email</h4>
               <p>info@onopuzzles.com</p>
             </div>
           </div>
           <div className="info-item">
-            <Phone className="info-icon" />
+            <i className="fa-solid fa-phone-flip info-icon"></i>
             <div className="info-text">
               <h4>Phone</h4>
               <p>+1 (555) 123-4567</p>
             </div>
           </div>
           <div className="info-item">
-            <MapPin className="info-icon" />
+            <i className="fa-solid fa-location-dot info-icon"></i>
             <div className="info-text">
               <h4>Address</h4>
               <p>123 Puzzle Street, NY 10001</p>

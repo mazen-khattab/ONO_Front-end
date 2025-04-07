@@ -13,21 +13,6 @@ const Hero = () => {
       }}
     >
       <div className="hero-overlay" />
-      {/* <div className="hero-content">
-        <div className="hero-text">
-          <h1 className="hero-title">
-            Challenge Your <span>Mind</span>
-          </h1>
-          <p className="hero-description">
-            Discover our collection of unique puzzles and intelligent toys
-          </p>
-        </div>
-
-        <a href="./AllProducts" className="shop-now">
-          Shop Now
-        </a>
-      </div> */}
-
       <div className="card">
         <div className="loader">
           <p><span style={{fontWeight: 700}}>Imporve</span> Your Child's</p>

@@ -19,7 +19,7 @@ const Discounts = () => {
             <div className="offer-content">
               <h3>Flash Sale</h3>
               <p>Get 30% off on all puzzle boxes</p>
-              <button className="offer-button">Shop Now</button>
+              <a href='/AllProducts' className="offer-button">Shop Now</a>
             </div>
           </div>
           

@@ -3,9 +3,6 @@
   height: 100vh;
   width: 180px;
   overflow: hidden;
-  top: 0;
-  display: flex;
-  justify-content: center;
 }
 
 .carousel-container1 {
@@ -22,8 +19,7 @@
 
 .carousel-track {
   will-change: transform;
-  animation: scrollVertically 20s linear infinite;
-  animation-direction: normal;
+  animation: scrollVertically 40s linear infinite;
 }
 
 .carousel-track.paused {

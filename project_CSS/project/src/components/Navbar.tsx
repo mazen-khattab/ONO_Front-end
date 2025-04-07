@@ -43,9 +43,6 @@ const Navbar = () => {
             <a href="./WhyUs" className="link">
               Why Us
             </a>
-            <a href="contact" className="link">
-              Contact
-            </a>
           </div>
 
           <div className={menuActive ? "nav-links-menu" : "nav-links-menu disappear"}>
@@ -66,9 +63,6 @@ const Navbar = () => {
               </a>
               <a href="./WhyUs" className="link">
                 Why Us
-              </a>
-              <a href="contact" className="link">
-                Contact
               </a>
             </div>
           </div>
