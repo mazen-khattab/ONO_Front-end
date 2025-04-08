@@ -136,7 +136,7 @@
 
 @media (max-width: 1024px) {
     .why-us-page {
-        padding: 60px 32px;
+        padding: 80px 32px;
     }
 
     .section-title {
@@ -170,7 +170,7 @@
 
 @media (max-width: 768px) {
     .why-us-page{
-        padding: 40px 16px;
+        padding: 80px 16px;
     }
 
     .section-title {
