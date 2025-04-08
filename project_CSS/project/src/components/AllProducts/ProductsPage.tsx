@@ -177,6 +177,7 @@ const ProductsPage = () => {
     priceRange: { min: 0, max: 100 },
     searchQuery: "",
   });
+  const [filterActive, setFilterActive] = useState();
 
   // Filter products based on current filters
   const filteredProducts = products.filter((product) => {
@@ -207,10 +208,17 @@ const ProductsPage = () => {
   );
 
   const handleAgeRangeChange = (range: string) => {
-    setFilters(prev => ({
-        ...prev, ageRange: prev.ageRange.includes(range) ? prev.ageRange.filter((r) => r !== range) : [...prev.ageRange, range]
+    setFilters((prev) => ({
+      ...prev,
+      ageRange: prev.ageRange.includes(range)
+        ? prev.ageRange.filter((r) => r !== range)
+        : [...prev.ageRange, range],
     }));
     setCurrentPage(1);
+  };
+
+  const activeFilter = () => {
+    setFilterActive(!filterActive);
   };
 
   const handlePriceChange = (type: "min" | "max", value: number) => {
@@ -229,84 +237,93 @@ const ProductsPage = () => {
       <Navbar />
 
       <div className="allProducts-page">
-        <div className="allProducts-header">
-        </div>
+        <div className="allProducts-header"></div>
         <div className="allProducts-container">
-          <aside className="productFilters-section">
-            <div className="productFilter-group">
-              <h3 className="productFilter-title">Search</h3>
-              <div className="search-input">
-                <input
-                  type="text"
-                  placeholder="Search products..."
-                  value={filters.searchQuery}
+          <div className="productFilters-section">
+            <div className={filterActive? "filter-title space" : "filter-title"}
+            onClick={activeFilter}>
+              <p>Filter</p>
+              <i className={filterActive? "fa-solid fa-angle-down" : "fa-solid fa-angle-down turn"}></i>
+            </div>
+            <aside className={filterActive? "productFilter-aside appear" : "productFilter-aside"}>
+              <div className="productFilter-group">
+                <h3 className="productFilter-title">Search</h3>
+                <div className="search-input">
+                  <input
+                    type="text"
+                    placeholder="Search products..."
+                    value={filters.searchQuery}
+                    onChange={(e) =>
+                      setFilters((prev) => ({
+                        ...prev,
+                        searchQuery: e.target.value,
+                      }))
+                    }
+                    className="productForm-input"
+                  />
+                </div>
+              </div>
+
+              <div className="productFilter-group">
+                <h3 className="productFilter-title">Category</h3>
+                <select
+                  value={filters.category}
                   onChange={(e) =>
                     setFilters((prev) => ({
                       ...prev,
-                      searchQuery: e.target.value,
+                      category: e.target.value,
                     }))
                   }
                   className="productForm-input"
-                />
+                >
+                  {categories.map((category) => (
+                    <option key={category} value={category}>
+                      {category}
+                    </option>
+                  ))}
+                </select>
               </div>
-            </div>
-      
-            <div className="productFilter-group">
-              <h3 className="productFilter-title">Category</h3>
-              <select
-                value={filters.category}
-                onChange={(e) =>
-                  setFilters((prev) => ({ ...prev, category: e.target.value }))
-                }
-                className="productForm-input"
-              >
-                {categories.map((category) => (
-                  <option key={category} value={category}>
-                    {category}
-                  </option>
-                ))}
-              </select>
-            </div>
-      
-            <div className="productFilter-group">
-              <h3 className="productFilter-title">Price Range</h3>
-              <div className="productPrice-range">
-                <div className="range-slider">
-                  <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value={filters.priceRange.max}
-                    onChange={(e) =>
-                      handlePriceChange("max", Number(e.target.value))
-                    }
-                    className="productSlider"
-                  />
-                </div>
-                <div className="productPrice-display">
-                  <span>${filters.priceRange.min}</span>
-                  <span>${filters.priceRange.max}</span>
-                </div>
-              </div>
-            </div>
-      
-            <div className="productFilter-group">
-              <h3 className="productFilter-title">Age Range</h3>
-              <div className="productCheckbox-group">
-                {ageRanges.map((range) => (
-                  <label key={range} className="productCheckbox-label">
+
+              <div className="productFilter-group">
+                <h3 className="productFilter-title">Price Range</h3>
+                <div className="productPrice-range">
+                  <div className="range-slider">
                     <input
-                      type="checkbox"
-                      checked={filters.ageRange.includes(range)}
-                      onChange={() => handleAgeRangeChange(range)}
+                      type="range"
+                      min="0"
+                      max="100"
+                      value={filters.priceRange.max}
+                      onChange={(e) =>
+                        handlePriceChange("max", Number(e.target.value))
+                      }
+                      className="productSlider"
                     />
-                    {range}
-                  </label>
-                ))}
+                  </div>
+                  <div className="productPrice-display">
+                    <span>${filters.priceRange.min}</span>
+                    <span>${filters.priceRange.max}</span>
+                  </div>
+                </div>
               </div>
-            </div>
-          </aside>
-      
+
+              <div className="productFilter-group">
+                <h3 className="productFilter-title">Age Range</h3>
+                <div className="productCheckbox-group">
+                  {ageRanges.map((range) => (
+                    <label key={range} className="productCheckbox-label">
+                      <input
+                        type="checkbox"
+                        checked={filters.ageRange.includes(range)}
+                        onChange={() => handleAgeRangeChange(range)}
+                      />
+                      {range}
+                    </label>
+                  ))}
+                </div>
+              </div>
+            </aside>
+          </div>
+
           <main>
             <div className="allproducts-grid">
               {paginatedProducts.map((product) => (
@@ -315,9 +332,13 @@ const ProductsPage = () => {
                     <img src={product.image} alt={product.name} />
                   </div>
                   <div className="allProduct-info">
-                    <div className="allProduct-category">{product.category}</div>
+                    <div className="allProduct-category">
+                      {product.category}
+                    </div>
                     <h3 className="allProduct-name">{product.name}</h3>
-                    <p className="allProduct-description">{product.description}</p>
+                    <p className="allProduct-description">
+                      {product.description}
+                    </p>
                     <div className="allProduct-footer">
                       <div className="allProduct-price">${product.price}</div>
                       <button className="add-to-cart">Add to Cart</button>
@@ -326,12 +347,14 @@ const ProductsPage = () => {
                 </div>
               ))}
             </div>
-      
+
             {totalPages > 1 && (
               <div className="pagination">
                 <button
                   className="page-btn"
-                  onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                  onClick={() =>
+                    setCurrentPage((prev) => Math.max(prev - 1, 1))
+                  }
                   disabled={currentPage === 1}
                 >
                   Previous

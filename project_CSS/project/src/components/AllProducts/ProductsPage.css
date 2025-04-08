@@ -32,10 +32,35 @@
 
 .productFilters-section {
   background: var(--white);
-  padding: 1.5rem;
+  padding: 1rem 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.1);
   height: fit-content;
+}
+
+.filter-title {
+  color: var(--main-color);
+  font-size: 35px;
+  font-weight: 800;
+  transition: 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.filter-title i {
+  color: rgb(194, 194, 194);
+  font-size: 18px;
+  transition: 0.5s;
+}
+
+.filter-title i.turn {
+  transform: rotate(180deg);
+}
+
+.filter-title.space {
+  margin-bottom: 30px;
 }
 
 .productFilter-group {
@@ -55,6 +80,7 @@
   border-radius: 5px;
   border: 2px solid #e1e1e1;
   outline: none;
+  cursor: pointer;
 }
 
 .productPrice-range {
@@ -289,13 +315,18 @@
   cursor: not-allowed;
 }
 
-@media (max-width: 768px) {
-  .products-container {
+@media (max-width: 620px) {
+  .allProducts-container {
     grid-template-columns: 1fr;
   }
 
-  .filters-section {
-    position: sticky;
-    top: 1rem;
+  .productFilter-aside {
+    overflow: hidden;
+    transition: 0.5s;
+    height: 0;
+  }
+
+  .productFilter-aside.appear {
+    height: 545px;
   }
 }
